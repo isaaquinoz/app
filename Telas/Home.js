@@ -3,10 +3,14 @@ import { StyleSheet, View, Image, SafeAreaView } from 'react-native';
 import { Button } from 'react-native-paper';
 import styled from 'styled-components/native';
 import logo from '../assets/oi.png';
+import Cadastro from './Cadastro';
 
 export default function App({ navigation }) {
-  function proximo() {
+  function cadastro() {
     navigation.navigate("Cadastro")
+  }
+  function listar() {
+    navigation.navigate("Listar")
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -17,22 +21,24 @@ export default function App({ navigation }) {
   
       <View style={styles.botoes}>
 
-        {/* <Button
-          style={styles.botao}
-          mode="contained"
-          buttonColor="#7f4fbe"
-          onPress={proximo}
-        >
-          Galáxias Cadastradas
-        </Button> */}
-        <Button
+      <Button
         style={styles.botao}
           mode="contained"
           buttonColor="#7f4fbe"
-          onPress={proximo}
+          onPress={Cadastro}
         >
           Cadastrar Galáxia
         </Button>
+
+        <Button
+          style={styles.botao}
+          mode="contained"
+          buttonColor="#7f4fbe"
+          onPress={listar}
+        >
+          Galáxias Cadastradas
+        </Button>
+       
        
       </View>
     </SafeAreaView>
