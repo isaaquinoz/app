@@ -25,7 +25,7 @@ export default function App({ navigation }) {
         style={styles.botao}
           mode="contained"
           buttonColor="#7f4fbe"
-          onPress={Cadastro}
+          onPress={cadastro}
         >
           Cadastrar Galáxia
         </Button>

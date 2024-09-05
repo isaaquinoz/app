@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, Image, StyleSheet, Text, View, Pressable } from 'react-native';
 import { Listas } from '../Componentes/Listas';
-
+import Voltar from '../assets/voltar.png';
 
 
 export default function Listar({ navigation }) {
@@ -10,10 +10,19 @@ export default function Listar({ navigation }) {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <View  style={styles.titulo}> 
+     
+     <View style={styles.voltarView}>  
+     <Pressable onPress={voltar}>
+       <Image source={Voltar} />
+    </Pressable>
+           
+        </View>
+        <View style={styles.titulo}>
         <Text style={styles.tituloCor}>Caláxias Cadastradas:</Text>
-        <Text onPress={voltar} style={styles.voltar}>Voltar</Text>
-      </View>
+        </View>
+   
+
+
       <Listas/>
      
     </SafeAreaView>
@@ -24,23 +33,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#15091c',
-    justifyContent: 'center', 
+    justifyContent: 'top', 
     textAlign:'center'
   },
+
   voltar:{
     color:'white'
   },
+  voltarView:{
+    marginTop:'13%',
+    position: 'absolute',//explicar que essa nao é boa 
+    left: 16,
+  },
+
   titulo:{
-    position: 'absolute', //explicar que essa nao é boa 
-    top: 0, 
-    left: 0,
-    right: 0,
-    alignItems: 'center',
-    marginTop: '20%',
+    marginTop:'9%',
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    paddingVertical: 16, 
+    position: 'relative',
   },
   tituloCor:{
 
     color:'white',  
+    fontSize: 18,
+    fontWeight: 'bold',
 
   },
  

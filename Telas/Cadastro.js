@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, SafeAreaView, TextInput } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, SafeAreaView, TextInput,Image, Pressable } from 'react-native';
 import { Button } from 'react-native-paper';
+import Voltar from '../assets/voltar.png';
+export default function Cadastro({ navigation }) {
 
-export default function Cadastro() {
-
-  const [solarSystemName, setSolarSystemName] = useState('');
-  const [galaxyName, setGalaxyName] = useState('');
+  function voltar() {
+    navigation.navigate("Home")
+  }
 
   return (
     <SafeAreaView style={styles.container}>
+       <View style={styles.voltarView}>  
+       <Pressable onPress={voltar}>
+       <Image source={Voltar} />
+    </Pressable>
+     
+  </View>
       <View style={styles.botoes}>
         <TextInput
           style={styles.input}
-          onChangeText={setSolarSystemName}
-          value={solarSystemName}
           keyboardType="default"
           placeholder="Nome do sistema solar"
           placeholderTextColor="white" 
@@ -21,8 +26,6 @@ export default function Cadastro() {
 
         <TextInput
           style={styles.input}
-          onChangeText={setGalaxyName}
-          value={galaxyName}
           keyboardType="default"
           placeholder="Galáxia materna"
           placeholderTextColor="white" 
@@ -31,7 +34,7 @@ export default function Cadastro() {
         <Button
           mode="contained"
           buttonColor="#7f4fbe"
-          onPress={() => console.log('Salvar')}
+         
         >
           Salvar
         </Button>
@@ -60,5 +63,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     color: '#fff', 
+  },
+  voltar:{
+    color:'white'
+  },
+  voltarView:{
+    marginTop:'13%',
+    position: 'absolute',//explicar que essa nao é boa 
+    left: 0,
+    top:0,
+
   },
 });
