@@ -9,6 +9,7 @@ export default function Cadastro({ navigation }) {
   }
 
   return (
+    
     <SafeAreaView style={styles.container}>
        <View style={styles.voltarView}>  
        <Pressable onPress={voltar}>
