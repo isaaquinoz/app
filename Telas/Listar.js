@@ -18,7 +18,7 @@ export default function Listar({ navigation }) {
            
         </View>
         <View style={styles.titulo}>
-        <Text style={styles.tituloCor}>Caláxias Cadastradas:</Text>
+        <Text style={styles.tituloCor}>Planetas e suas galáxias Cadastradas:</Text>
         </View>
    
 

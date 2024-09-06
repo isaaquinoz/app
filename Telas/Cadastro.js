@@ -21,17 +21,11 @@ export default function Cadastro({ navigation }) {
         <TextInput
           style={styles.input}
           keyboardType="default"
-          placeholder="Nome do sistema solar"
+          placeholder="Nome da Galáxia"
           placeholderTextColor="white" 
         />
 
-        <TextInput
-          style={styles.input}
-          keyboardType="default"
-          placeholder="Galáxia materna"
-          placeholderTextColor="white" 
-        />
-
+      
         <Button
           mode="contained"
           buttonColor="#7f4fbe"
