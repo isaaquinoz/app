@@ -12,21 +12,27 @@ class GalaxiaController extends Controller
 
     public function listar()
     {
+    //    return response()->json('af');
        $galaxias = Galaxias::with('planetas')->get();
        return response()->json($galaxias);
+
 
     }
 
     public function criar(StoreGalaxiaRequest $request)
 
     {
+
+
       try {
-        $galaxia = Galaxias::create($request->validated());
+        $galaxia = Galaxias::create($request->all()); //transforma o json no formado do PHP - pego na documentação.
         return response()->json([
             'success' => true,
             'galaxia' => $galaxia,
         ], 201);
-      } catch (\Exception $e) {
+
+      }
+      catch (\Exception $e) {
         return response()->json([
             'success' => false,
             'message' => $e->getMessage(),

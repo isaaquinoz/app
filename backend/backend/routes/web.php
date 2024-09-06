@@ -9,9 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/galaxias', [GalaxiaController::class, 'listar'])->name('galaxias.listar');
-Route::post('/galaxias', [GalaxiaController::class, 'criar'])->name('galaxias.criar');
+Route::post('/galaxiasCriar', [GalaxiaController::class, 'criar'])->name('galaxias.criar');
 Route::get('/galaxias/{id}', [GalaxiaController::class, 'find'])->name('galaxias.find');
-Route::post('/galaxias/{id}', [GalaxiaController::class, 'atualizar'])->name('galaxias.atualizar');
+Route::put('/galaxias/{id}', [GalaxiaController::class, 'atualizar'])->name('galaxias.atualizar');
 Route::delete('/galaxias/{id}', [GalaxiaController::class, 'deletar'])->name('galaxias.deletar');
 
 
