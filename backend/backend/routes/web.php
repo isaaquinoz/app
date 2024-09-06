@@ -18,5 +18,5 @@ Route::delete('/galaxias/{id}', [GalaxiaController::class, 'deletar'])->name('ga
 Route::get('/planetas', [PlanetaController::class, 'listar'])->name('planetas.listar');
 Route::post('/planetas', [PlanetaController::class, 'criar'])->name('planetas.criar');
 Route::get('/planetas/{id}', [PlanetaController::class, 'find'])->name('planetas.find');
-Route::post('/planetas/{id}', [PlanetaController::class, 'atualizar'])->name('planetas.atualizar');
+Route::put('/planetas/{id}', [PlanetaController::class, 'atualizar'])->name('planetas.atualizar');
 Route::delete('/planetas/{id}', [PlanetaController::class, 'deletar'])->name('planetas.deletar');
