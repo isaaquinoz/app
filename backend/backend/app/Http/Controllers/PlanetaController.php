@@ -11,6 +11,7 @@ class PlanetaController extends Controller
 {
     public function listar()
     {
+
        $planetas = Planetas::with('galaxia')->get();
        return response()->json($planetas);
     }
@@ -18,7 +19,7 @@ class PlanetaController extends Controller
     public function criar(StorePlanetaRequest $request)
     {
       try {
-        $planeta = Planetas::create($request->validated());
+        $planeta = Planetas::create($request->all());
         return response()->json([
             'success' => true,
             'planeta' => $planeta,
@@ -69,6 +70,7 @@ class PlanetaController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Planeta não encontrado T-T',
+
             ], 404);
         }
     }
