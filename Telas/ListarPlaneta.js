@@ -7,20 +7,20 @@ import { DataTable } from 'react-native-paper';
 import { useRoute } from '@react-navigation/native';
 
 export default function Listar({ navigation }) {
-  const route = useRoute();
-  const batata = route.params?.batata || ''; // p n dar erro
+  const [planetas, setPlanetas] = useState([]);
 
-  const [galaxias, setGalaxias] = useState([]);
+  const route = useRoute();
+  const batata = route.params?.batata || ''; 
 
   function proximo(id) {
-    navigation.navigate("ListarIDGalaxia", { id: id });
+    navigation.navigate("ListarIDPlaneta", { id: id });
   }
 
   const buscaAxios = () => {
-    axios.get(URL + 'galaxias')
+    axios.get(URL + 'planetas')
       .then(function (response) {
         console.log(response.data);
-        setGalaxias(response.data);
+        setPlanetas(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -43,27 +43,29 @@ export default function Listar({ navigation }) {
         </Pressable>
       </View>
       <View style={styles.contentTabela}>
-        <Text style={styles.tituloCor}>Galáxias Cadastradas:</Text>
-        <Text style={styles.subTituloCor}>Para edita-las, basta clicar no nome</Text>
-        {batata !== '' && <Text style={styles.subTituloCor}>{batata}</Text>} {/* Exibe batata apenas se tiver valor */}
+        <Text style={styles.tituloCor}>Planetas Cadastrados:</Text>
+        {batata !== '' && <Text style={styles.subTituloCor}>{batata}</Text>} {/* Exibe 'batata' somente se tiver valor */}
       </View>
 
       <DataTable style={styles.table}>
         <DataTable.Header style={styles.tableHeader}>
           <DataTable.Title textStyle={styles.tableTitle}>ID</DataTable.Title>
           <DataTable.Title textStyle={styles.tableTitle}>Nome</DataTable.Title>
+          <DataTable.Title textStyle={styles.tableTitle}>Galaxia</DataTable.Title>
         </DataTable.Header>
 
-        {galaxias.map((galaxia) => (
-          <DataTable.Row key={galaxia.id} style={styles.tableRow}>
-            <DataTable.Cell textStyle={styles.tableText}>{galaxia.id}</DataTable.Cell>
-            <DataTable.Cell onPress={() => proximo(galaxia.id)} textStyle={styles.tableText}>{galaxia.nome}</DataTable.Cell>
+        {planetas.map((batata) => (
+          <DataTable.Row key={batata.id} style={styles.tableRow}>
+            <DataTable.Cell textStyle={styles.tableText}>{batata.id}</DataTable.Cell>
+            <DataTable.Cell onPress={()=> proximo(batata.id)} textStyle={styles.tableText}>{batata.nome}</DataTable.Cell>
+            <DataTable.Cell textStyle={styles.tableText}>{batata.galaxia?.nome || 'N/A'}</DataTable.Cell>
           </DataTable.Row>
         ))}
       </DataTable>
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {

@@ -16,6 +16,9 @@ export default function App({ navigation }) {
   function listar() {
     navigation.navigate("Listar")
   }
+  function listarPlaneta() {
+    navigation.navigate("ListarPlaneta")
+  }
 
   
   return (
@@ -50,16 +53,16 @@ export default function App({ navigation }) {
           buttonColor="#7f4fbe"
           onPress={listar}
         >
-          Planetas Cadastrados
+          Galáxias Cadastradas
         </Button>
-        {/* <Button
+        <Button
           style={styles.botao}
           mode="contained"
           buttonColor="#7f4fbe"
-          onPress={listarGal}
+          onPress={listarPlaneta}
         >
-           Galáxias Cadastrados
-        </Button> */}
+           Planetas Cadastrados
+        </Button>
        
        
       </View>
