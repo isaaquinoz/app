@@ -22,7 +22,7 @@ class StorePlanetaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => 'required|string|max:10|unique:tb_planetas',
+            'nome' => 'required|string|max:20|unique:tb_planetas',
         ];
 
     }

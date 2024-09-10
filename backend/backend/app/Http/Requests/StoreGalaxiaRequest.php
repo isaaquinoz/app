@@ -23,7 +23,7 @@ class StoreGalaxiaRequest extends FormRequest
     {
 
             return [
-                'nome' => 'required|string|max:10|unique:tb_galaxia',
+                'nome' => 'required|string|max:20|unique:tb_galaxia',
             ];
 
     }
